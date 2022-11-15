@@ -24,9 +24,15 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required','string'],
-            'email' =>['required', 'string', 'unique:users'],
-            'password' =>['required', 'confirmed', Password::defaults()]
+            'first_name' => ['required','string'],
+            'email' =>['string', 'unique:users'],
+            'password' =>['required', 'confirmed', Password::defaults()],
+            'last_name' =>['required', 'string'],
+            'inscription_number' =>['required', 'string', 'unique:users'],
+            'role' =>['required'],
+            'speciality' =>['string', 'required'],
+            'group' =>'required',
+            'username'=>['required', 'string', 'unique:users'],
         ];
     }
 }

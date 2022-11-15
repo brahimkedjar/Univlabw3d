@@ -16,10 +16,10 @@ class AuthController extends Controller
 
     public function login(LoginUserRequest $request){
         $request->validated($request->all());
-        if(!Auth::attempt($request->only(['email', 'password']))){
+        if(!Auth::attempt($request->only(['inscription_number', 'password']))){
             return $this->error('', 'Credentials do not match', 401);
         }
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('inscription_number', $request->inscription_number)->first();
         return $this->success([
             'user' => $user,
             'token' => $user->createToken('API Token of '.$user->name)->plainTextToken
@@ -30,9 +30,15 @@ class AuthController extends Controller
         $request->validated($request->all());
 
         $user = User::create([
-            'name' => $request->name,
+            'first_name' => $request->first_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'inscription_number' => $request->inscription_number,
+            'last_name' =>$request->last_name,
+            'role' =>$request->role,
+            'speciality' =>$request->speciality,
+            'group' => $request->group,
+            'username' => $request->username,
         ]);
         return $this->success([
             'user' => $user,
