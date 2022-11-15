@@ -25,7 +25,7 @@ class AuthController extends Controller
             'token' => $user->createToken('API Token of '.$user->name)->plainTextToken
         ]);
     }
-
+//'role' =>$request->role, 'speciality' =>$request->speciality, 'group' => $request->group,
     public function register(StoreUserRequest   $request){
         $request->validated($request->all());
 

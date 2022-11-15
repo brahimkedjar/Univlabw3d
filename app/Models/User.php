@@ -23,9 +23,6 @@ class User extends Authenticatable
         'password',
         'inscription_number',
         'last_name',
-        'role',
-        'speciality',
-        'group',
         'username',
     ];
 

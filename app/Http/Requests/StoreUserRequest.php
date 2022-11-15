@@ -21,6 +21,7 @@ class StoreUserRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
+    //'group' =>'required',
     public function rules()
     {
         return [
@@ -28,10 +29,7 @@ class StoreUserRequest extends FormRequest
             'email' =>['string', 'unique:users'],
             'password' =>['required', 'confirmed', Password::defaults()],
             'last_name' =>['required', 'string'],
-            'inscription_number' =>['required', 'string', 'unique:users'],
-            'role' =>['required'],
-            'speciality' =>['string', 'required'],
-            'group' =>'required',
+            'inscription_number' =>['required', 'unique:users'],
             'username'=>['required', 'string', 'unique:users'],
         ];
     }
