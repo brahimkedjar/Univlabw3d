@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('group_id')->nullable();
             $table->string('username', 50)->unique();
             $table->string('password')->nullable()->default('00000000');
-            $table->unsignedBigInteger('inscription_number')->nullable()->unique();
+            $table->string('inscription_number')->unique();
             $table->string('first_name',50)->nullable();
             $table->string('last_name',50)->nullable();
             $table->string('email')->nullable();
