@@ -47,6 +47,10 @@ class AuthController extends Controller
     }
 
     public function logout(){
-        return response()->json('Logged out');
+    Auth::user()->currentAccessToken()->delete();
+    return $this->success([
+        'message' => 'Logout Successful, permissions revoked'
+    ]
+    );
     }
 }

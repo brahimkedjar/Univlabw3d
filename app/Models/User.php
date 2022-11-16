@@ -24,6 +24,9 @@ class User extends Authenticatable
         'inscription_number',
         'last_name',
         'username',
+        'role_id',
+        'speciality_id',
+        'group_id'
     ];
 
     /**
