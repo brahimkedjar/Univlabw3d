@@ -35,9 +35,9 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
             'inscription_number' => $request->inscription_number,
             'last_name' =>$request->last_name,
-            'role' =>$request->role,
-            'speciality' =>$request->speciality,
-            'group' => $request->group,
+            'role_id' =>$request->role_id,
+            'speciality_id' =>$request->speciality_id,
+            'group_id' => $request->group_id,
             'username' => $request->username,
         ]);
         return $this->success([
