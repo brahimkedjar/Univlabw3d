@@ -17,5 +17,6 @@ class Module extends Model
         'module_name',
         'levels_id',
         'specialities_id',
+        'user_id',
     ];
 }

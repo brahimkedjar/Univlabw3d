@@ -20,6 +20,7 @@ class ModuleController extends Controller
             'module_name'=>$request->module_name,
             'levels_id' =>$request->levels_id,
             'specialities_id'=>$request->specialities_id,
+            'user_id' =>$request->user_id,
         ]);
         return $this->success([
             'modules' =>$module,
