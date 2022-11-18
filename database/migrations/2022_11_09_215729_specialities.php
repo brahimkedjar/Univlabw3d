@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             // $table->unsignedSmallInteger('departement_id');
             // $table->foreign('departement_id')->references('id')->on('departement');
-            $table->string('speciality');
+            // $table->string('speciality');
+            $table->enum('speciality',['IDTW', 'F3I', 'RSD', 'GL', 'IFIA']);
             $table->timestamps();
         });
     }
