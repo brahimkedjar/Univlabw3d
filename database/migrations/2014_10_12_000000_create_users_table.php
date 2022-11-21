@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faculties', function (Blueprint $table){
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            // $table->string('faculty')->nullable();
-            $table->enum('faculty', ['Sciences', 'Medicine', 'Institute of Architecture and Earth Sciences', 'Science of Nature and Life', 'Economics, Business and Management Sciences', 'Technology', '
-            Institute of Optics and Precision Mechanics']);
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
-            
-            
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faculties');
+        Schema::dropIfExists('users');
     }
 };
