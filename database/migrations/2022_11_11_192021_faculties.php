@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('faculties', function (Blueprint $table){
             $table->id();
-            $table->string('faculty')->nullable();
+            // $table->string('faculty')->nullable();
+            $table->enum('faculty', ['Sciences', 'Medicine', 'Institute of Architecture and Earth Sciences', 'Science of Nature and Life', 'Economics, Business and Management Sciences', 'Technology', '
+            Institute of Optics and Precision Mechanics']);
             $table->timestamps();
             
             
