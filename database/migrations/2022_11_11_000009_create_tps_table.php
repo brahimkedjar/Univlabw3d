@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('tps', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('module_id')->nullable();
-            $table->string('module_name')->nullable();;
             $table->longText('rappel');
             $table->longText('objectif');
             $table->longText('materiel');
