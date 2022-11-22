@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('departement_id')->nullable();
             $table->unsignedBigInteger('3dObject_id')->nullable();
-            //to do $table->string('name');
-            //to do $table->string('path');
+            // $table->string('name'); // TODO
+            // $table->string('path'); // TODO
             $table->timestamps();
             $table->foreign('departement_id')->references('id')->on('departements')->onDelete("set null")->onUpdate("cascade");
             $table->foreign('Object3d_id')->references('id')->on('Objects3d')->onDelete("set null")->onUpdate("cascade");
