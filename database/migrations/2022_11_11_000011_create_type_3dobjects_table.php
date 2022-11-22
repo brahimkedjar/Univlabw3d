@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Objects3d', function (Blueprint $table) {
+         Schema::create('type_3dobjects', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('type_3dObject_id')->nullable();
-            $table->string('object_name');
-            $table->string('path');
+            $table->enum('type', ['Scene', 'Produit', 'Appareil']);
             $table->timestamps();
-            $table->foreign('type_3dObject_id')->references('id')->on('type_3dObjects')->onDelete('set null')->onUpdate('cascade');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Objects3d');
+        Schema::dropIfExists('type_3dobjects');
     }
 };

@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('departement_3dObjects', function (Blueprint $table) {
+        Schema::create('departement_3dobjects', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('departement_id')->nullable();
-            $table->unsignedBigInteger('3dObject_id')->nullable();
-            //to do $table->string('name');
-            //to do $table->string('path');
+            $table->unsignedBigInteger('object3d_id')->nullable();
+            // $table->string('name'); // TODO
+            // $table->string('path'); // TODO
             $table->timestamps();
             $table->foreign('departement_id')->references('id')->on('departements')->onDelete("set null")->onUpdate("cascade");
-            $table->foreign('Object3d_id')->references('id')->on('Objects3d')->onDelete("set null")->onUpdate("cascade");
+            $table->foreign('object3d_id')->references('id')->on('objects3d')->onDelete("set null")->onUpdate("cascade");
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departement_3dObjects');
+        Schema::dropIfExists('departement_3dobjects');
     }
 };
