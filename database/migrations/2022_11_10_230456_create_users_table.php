@@ -19,18 +19,17 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('speciality_id')->nullable();
             $table->unsignedBigInteger('group_id')->nullable();
             $table->string('username', 50)->unique();
-            $table->string('password')->unique()->nullable()->default('00000000');
-            $table->integer('inscription_number')->nullable()->unique();
+            $table->string('password')->nullable()->default('00000000');
+            $table->string('inscription_number')->unique();
             $table->string('first_name',50)->nullable();
             $table->string('last_name',50)->nullable();
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
             $table->foreign('role_id')
                 ->references('id')
-                ->on('roles')
-                ->onDelete('set null')
-                ->onUpdate('cascade');
+                ->on('roles');
             $table->foreign('speciality_id')
                 ->references('id')
                 ->on('specialities')

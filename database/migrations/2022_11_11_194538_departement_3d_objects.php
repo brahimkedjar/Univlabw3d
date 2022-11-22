@@ -21,7 +21,7 @@ return new class extends Migration
             //to do $table->string('path');
             $table->timestamps();
             $table->foreign('departement_id')->references('id')->on('departements')->onDelete("set null")->onUpdate("cascade");
-            $table->foreign('3dObject_id')->references('id')->on('3dObjects')->onDelete("set null")->onUpdate("cascade");
+            $table->foreign('Object3d_id')->references('id')->on('Objects3d')->onDelete("set null")->onUpdate("cascade");
         });
     }
 

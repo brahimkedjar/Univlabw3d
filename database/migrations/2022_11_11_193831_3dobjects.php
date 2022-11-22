@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('3dObjects', function (Blueprint $table) {
+        Schema::create('Objects3d', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('type_3dObject_id')->nullable();
             $table->string('object_name');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('3dObjects');
+        Schema::dropIfExists('Objects3d');
     }
 };
