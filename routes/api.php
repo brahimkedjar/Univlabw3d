@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\objects3d_C;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,4 @@ Route::resource('/modules',ModuleController::class);
 Route::group(['middleware'=>['auth:sanctum']], function(){
 Route::post('/logout',[AuthController::class, 'logout']);
 });
+
