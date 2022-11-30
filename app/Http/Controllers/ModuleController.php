@@ -9,17 +9,14 @@ use Illuminate\Http\Request;
 
 class ModuleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($request)
+    use HttpResponses;
+    public function index()
     {
-        $modules = Module::where('');
+        $modules = Module::all();
+
         return $this->success([
             'modules'=>$modules,
-        ]);
+        ],'successful');
     }
     public function store(StoreModuleRequest $request)
     {
@@ -32,8 +29,8 @@ class ModuleController extends Controller
             'user_id' =>$request->user_id,
         ]);
         return $this->success([
-            'modules' =>$module,
-        ]);
+            'module'=>$module,
+        ],'successful');
     }
 
     /**
@@ -41,7 +38,7 @@ class ModuleController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
     public function update(Request $request, $id)
     {
@@ -54,22 +51,26 @@ class ModuleController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
     public function destroy($id)
     {
-        $module = Module::destroy($id);
-        return $this->success([
-            'message'=>'deleted successfull',
-        ]);
+        return Module::destroy($id);
     }
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Module::find($id);
+        $module = Module::find($id);
+        if($module!=null){
+            return $this->success([
+                'module'=>$module,
+            ],'found');
+        }else{
+            return $this->error('','module not found', 404);
+        }
+
     }
 }
