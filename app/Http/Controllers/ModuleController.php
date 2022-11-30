@@ -55,7 +55,12 @@ class ModuleController extends Controller
      */
     public function destroy($id)
     {
-        return Module::destroy($id);
+        $del =Module::destroy($id);
+        if($del){
+            return $this->success('','deleted');
+        }else{
+            return $this->error('','module not found,',404);
+        }
     }
     /**
      * Display a listing of the resource.
