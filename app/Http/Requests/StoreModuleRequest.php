@@ -27,7 +27,7 @@ class StoreModuleRequest extends FormRequest
             'module_name' =>['string', 'required'],
             'levels_id' => ['required'],
             'specialities_id' => ['required'],
-            'user_id' => ['required'],
+            'user_id' =>['string'],
         ];
     }
 }

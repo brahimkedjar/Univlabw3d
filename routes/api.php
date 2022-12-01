@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [AuthController::class,'login']);
 Route::post('/register', [AuthController::class,'register']);
 Route::resource('/modules',ModuleController::class);
+Route::resource('/users',UserController::class);
+Route::get('/users/showrole/{role}',[UserController::class,'showrole']);
 //Protected routes
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
