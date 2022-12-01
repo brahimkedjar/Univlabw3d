@@ -41,13 +41,13 @@ class AuthController extends Controller
             'username' => $request->username,
         ]);
         return $this->success([
-            'user' => $user,
+            'user' => $user,    
             'token' => $user->createToken('API Token of '.$user->name)->plainTextToken
         ]);
     }
 
     public function logout(){
-    Auth::user()->currentAccessToken()->delete();
+    User::user()->currentAccessToken()->delete();
     return $this->success([
         'message' => 'Logout Successful, permissions revoked'
     ]
