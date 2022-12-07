@@ -11,6 +11,7 @@ class objects3d_C extends Controller
 {
     public function getObject()
     {
-        return objects3d::All();
+        $Objects = objects3d::All();
+        return response()-> json($Objects) ;
     }
 }
