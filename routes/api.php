@@ -32,3 +32,5 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 Route::post('/logout',[AuthController::class, 'logout']);
 });
 
+Route::get('allObject3D',[objects3d_C::class,'getObject']);
+

@@ -17,5 +17,3 @@ use App\Http\Controllers\objects3d_C;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource("/objects3", objects3d_C::class);
