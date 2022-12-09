@@ -36,8 +36,8 @@
 
         <div class="form-container sign-up-container" id="sign-up">
 
-            <form action="#" id="loginForm">
-
+            <form action="/" id="loginForm" method="POST">
+                @csrf
                 <header>Register a new account</header>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -49,31 +49,47 @@
 
                   <div class=" row g-3">
                      <div class="col">
-                      <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                      <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="first_name">
+                      @error('first_name')
+                          <p class="">{{$message}}</p>
+                      @enderror
                     </div>
                     &nbsp;
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="last_name">
+                      @error('last_name')
+                          <p class="">{{$message}}</p>
+                      @enderror
                     </div>
                   </div>
                 <div class="form-group">
                     <i class="far fa-user"></i>
                     <input class="myInput" type="text" placeholder="User name" name="username" />
-
+                    @error('username')
+                          <p class="">{{$message}}</p>
+                      @enderror
                 </div>
                 <div class="form-group">
                     <i class="far fa-envelope"></i>
                     <input class="myInput" type="email" placeholder="Email" name="email"/>
-
+                    @error('email')
+                          <p class="">{{$message}}</p>
+                      @enderror
                 </div>
                 <div class="form-group">
                     <i class="fas fa-lock"></i>
-                    <input class="myInput" type="password" placeholder="Password" name="pass"/>
+                    <input class="myInput" type="password" placeholder="Password" name="password"/>
+                    @error('password')
+                          <p class="">{{$message}}</p>
+                      @enderror
 
                 </div>
                 <div class="form-group">
                     <i class="fas fa-address-card"></i>
-                    <input class="myInput" type="text" placeholder="Registration number" name="registration" />
+                    <input class="myInput" type="text" placeholder="Inscription number" name="inscription_number" />
+                    @error('inscription_number')
+                          <p class="">{{$message}}</p>
+                      @enderror
 
                 </div>
                 <div class="form-group row g-3">
@@ -108,7 +124,8 @@
 
         <div class="form-container sign-in-container" id="sign-in">
 
-            <form action="/teacher">
+            <form method="POST" action="">
+                @csrf
                 <a class="logo1" id="brand1" href="/"><img
                     src="{{asset('images/univlablogo2.svg')}}"
                     height="50"
@@ -126,13 +143,17 @@
                 <span> or sign in with your email id</span>
                 <div class="form-group">
                     <i class="far fa-envelope"></i>
-                     <input  class="myInput"  placeholder="Email" type="text" id="email" required>
-
+                    <input  class="myInput"  placeholder="Email" type="text" id="email" required>
+                    @error('email')
+                          <p class="">{{$message}}</p>
+                      @enderror
                 </div>
                 <div class="form-group">
                     <i class="fas fa-lock"></i>
-                     <input  class="myInput" type="password" id="password" placeholder="Password" required>
-
+                    <input  class="myInput" type="password" id="password" placeholder="Password" required>
+                    @error('password')
+                        <p class="">{{$message}}</p>
+                    @enderror
                      <div class="eye">
                      <i id="hide1" class="fa-solid fa-eye"></i>
                      <i id="hide2"class="fa-solid fa-eye-slash"></i>
