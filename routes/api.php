@@ -27,6 +27,12 @@ Route::post('/login', [AuthController::class,'login']);
 Route::post('/register', [AuthController::class,'register']);
 Route::resource('/modules',ModuleController::class);
 //Protected routes
+//3Dobject
+Route::delete('Departement_3Dobject/delete/{id}',[Departement_3DobjectController::class,'delete']);
+Route::put('Departement_3Dobject/update/{id}',[Departement_3DobjectController::class,'update']);
+Route::get('Departement_3Dobject/read/{id}',[Departement_3DobjectController::class,'read']);
+Route::post('Departement_3Dobject/create',[Departement_3DobjectController::class,'create']);
+//c
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
 Route::post('/logout',[AuthController::class, 'logout']);
