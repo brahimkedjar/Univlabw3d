@@ -10,7 +10,7 @@ class Departement_3DObject extends Model
     use HasFactory;
     protected $table = 'Departement_3DObject';
     protected $primaryKey = 'id';
-    protected $timestamps = 'false';
+    protected $timestamps = 'true';
     protected $fillable=[
         'id',
         'id_departement',
