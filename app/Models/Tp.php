@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tp extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
     /**
      * The database table used by the model.
      *
@@ -35,4 +36,6 @@ class Tp extends Model
         'materiel',
         'questions'
     ];
+=======
+>>>>>>> parent of a9d605e (add tp api JSON)
 }

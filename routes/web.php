@@ -19,6 +19,3 @@ Route::get('/', function () {
 });
 
 Route::resource("/objects3", objects3d_C::class);
-
-use App\Http\Controllers\TpController;
-Route::resource('tps', TpController::class);
