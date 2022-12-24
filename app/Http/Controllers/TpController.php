@@ -13,6 +13,7 @@ class TpController extends Controller
 {
     public $rules = [
         'module_id' => 'nullable|numeric',
+        'name'    => 'required|string',
         'rappel'    => 'required|string',
         'objectif'  => 'required|string',
         'materiel'  => 'required|string',

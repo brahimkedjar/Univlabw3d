@@ -29,6 +29,7 @@ class Tp extends Model
      */
     protected $fillable = [
         'module_id',
+        'name',
         'rappel',
         'objectif',
         'materiel',
