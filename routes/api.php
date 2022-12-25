@@ -25,6 +25,7 @@ Route::get('/login', [AuthController::class,'login'])->name('login');
 //Public Routes
 Route::resource('/modules',ModuleController::class);
 Route::resource('tps', TpController::class);
+Route::get('allObject3D', [objects3d_C::class, 'getObject']);
 //Protected routes
 Route::post('/register', [AuthController::class,'register'])->name('register');
 Route::group(['middleware'=>['auth:sanctum']], function(){
