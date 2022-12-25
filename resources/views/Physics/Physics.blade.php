@@ -100,9 +100,9 @@
                      
                     </div>
 
-      </nav>
+                       </nav>
 
-    </div>
+                  </div>
   </header>
       <section class="shapedividers hero mb-sm-5" id="hero">
         <div class="container">
@@ -190,11 +190,10 @@
               @inject('Tps', 'App\Http\Controllers\TpController')
 
  @php
-$data = $Tps::index();
-$data1 = json_decode($data, true);
+$Tps = $Tps::index_filtred();
+dd($Tps)
 
-echo $data[0]['original'] ;
-
+	
   @endphp
               
               <div class="view_item rounded-4">

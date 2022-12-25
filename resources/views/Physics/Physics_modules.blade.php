@@ -42,7 +42,7 @@
                  alt="UnivLab3D"
                  loading="lazy"
                  style="display:inline;"
-               /> <b style="display:inline;"> UnivLab3D</b></a>
+               /> <b style="display:inline;"> UnivLab3D </b></a>
                 
       
                    <!-- Toggle button -->
@@ -100,9 +100,9 @@
                      
                     </div>
 
-      </nav>
+                       </nav>
 
-    </div>
+                  </div>
   </header>
       <section class="shapedividers hero mb-sm-5" id="hero">
         <div class="container">
@@ -196,11 +196,10 @@
             <div class="vi_right">
               <p class="title">{{ $value->module_name }}</p>
               <p class="content">{{ $value->levels_id }}</p>
-              <div class="btn"><a class="text-white" href="{{ route('Tps') }}"> View More </a></div>
+              <div id='show_tp' class="btn"><a class="text-white" href="{{ route('Tps') }}" > View More </a></div>
             </div>
             
           </div>     
-              
               
              @endif              
                                 @endforeach

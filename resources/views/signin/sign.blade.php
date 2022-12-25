@@ -208,7 +208,6 @@
                     },
                     dataType: 'json',
                     success: function (result) {
-                        console.log(result);
                         $.each(result.Specialities, function (key, value) {
                             $("#speciality").append('<option value="' + value.id + '">' + value.speciality + '</option>');
                         });

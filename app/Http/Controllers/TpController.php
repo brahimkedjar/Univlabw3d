@@ -34,8 +34,20 @@ class TpController extends Controller
 
          $res = response()->json(['tps' => $tps]);
         
-        return response()->json($tps, 200);
+        return response()->json($tps, 200)->getData();
     }
+    public static function index_filtred()
+    {
+        $tps = DB::table('tps')
+            ->join('modules', 'tps.module_id', '=', 'modules.id')
+            ->select('tps.*', 'modules.module_name')
+            ->get();
+
+        $res = response()->json(['tps' => $tps]);
+
+        return response()->json($tps, 200)->getData();
+    }
+
 
     /**
      * Show the form for creating a new resource.
