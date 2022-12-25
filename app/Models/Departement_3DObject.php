@@ -9,5 +9,6 @@ class Departement_3DObject extends Model
 {
     use HasFactory;
     protected $table = 'Departement_3DObject';
+    
      
 }

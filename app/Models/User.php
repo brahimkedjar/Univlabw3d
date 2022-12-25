@@ -23,9 +23,9 @@ class User extends Authenticatable
         'password',
         'inscription_number',
         'last_name',
-        'role_id',
         'speciality_id',
         'group_id',
+        'departement_id',
         'username',
     ];
 

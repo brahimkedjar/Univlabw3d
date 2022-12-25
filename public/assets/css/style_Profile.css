@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.header-profile{
+  background-image: url() ;
+  
+
+ background-size:300px;
+ border-bottom-left-radius: 100px 100px;
+ border-bottom-right-radius: 100px 100px;
+}
+
+.user_info {
+  margin: 20%;
+}
