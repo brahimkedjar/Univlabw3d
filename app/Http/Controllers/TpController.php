@@ -13,7 +13,7 @@ class TpController extends Controller
 {
     public $rules = [
         'module_id' => 'nullable|numeric',
-        'name'    => 'required|string',
+        'name'      => 'required|string',
         'rappel'    => 'required|string',
         'objectif'  => 'required|string',
         'materiel'  => 'required|string',
@@ -23,13 +23,15 @@ class TpController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int  $module_id
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($module_id)
     {
         $tps = DB::table('tps')
             ->join('modules', 'tps.module_id', '=', 'modules.id')
             ->select('tps.*', 'modules.module_name')
+            ->where('tps.module_id', $module_id)
             ->get();
 
         return response()->json($tps, 200);
@@ -106,14 +108,15 @@ class TpController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tp  $tp
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tp $tp)
+    public function destroy($id)
     {
-        $res = $tp->delete();
+        $tp = Tp::find($id);
         
-        if (!$res) return response()->json(null, 404);
+        if (!$tp) return response()->json(null, 404);
+        $tp->delete();
         return response()->json('Tp has been deleted successfully.', 200);
     }
 }
