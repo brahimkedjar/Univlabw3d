@@ -1,0 +1,202 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                inscription_number:
+                  type: string
+                  description: ''
+                  example: qui
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: 'oOW7$Ae8y{UT)O`%p6[o'
+              required:
+                - inscription_number
+                - password
+      security: []
+  /api/register:
+    post:
+      summary: ''
+      operationId: postApiRegister
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: juwan.lang@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: sit
+                last_name:
+                  type: string
+                  description: ''
+                  example: et
+                inscription_number:
+                  type: string
+                  description: ''
+                  example: eveniet
+                role_id:
+                  type: string
+                  description: ''
+                  example: in
+                speciality_id:
+                  type: string
+                  description: ''
+                  example: soluta
+                group_id:
+                  type: string
+                  description: ''
+                  example: omnis
+                username:
+                  type: string
+                  description: ''
+                  example: doloribus
+              required:
+                - password
+                - last_name
+                - inscription_number
+                - role_id
+                - speciality_id
+                - group_id
+                - username
+      security: []
+  /api/modules:
+    post:
+      summary: ''
+      operationId: postApiModules
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                module_name:
+                  type: string
+                  description: ''
+                  example: sapiente
+                levels_id:
+                  type: string
+                  description: ''
+                  example: provident
+                specialities_id:
+                  type: string
+                  description: ''
+                  example: animi
+                user_id:
+                  type: string
+                  description: ''
+                  example: quibusdam
+              required:
+                - module_name
+                - levels_id
+                - specialities_id
+                - user_id
+      security: []
+  /api/logout:
+    post:
+      summary: ''
+      operationId: postApiLogout
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
