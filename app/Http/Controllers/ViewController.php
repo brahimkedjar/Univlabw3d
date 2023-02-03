@@ -12,6 +12,11 @@ class ViewController extends Controller
         
         return view('signin.sign');
     }
+    public function admin_form()
+    {
+
+        return view('admin.Admin');
+    }
     public function student_profile(){
         if (Auth::guest()) {
  //is a guest so redirect

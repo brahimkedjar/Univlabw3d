@@ -92,7 +92,7 @@ frontend.sign
                                 Profile
                             </a>
                             
-                            <a class="dropdown-item" href="Admin.html">
+                            <a href="{{ route('admin_form') }}"class="dropdown-item" href="Admin.html">
                                 <i class="bi bi-gear"></i>
                                 Admin
                             </a>

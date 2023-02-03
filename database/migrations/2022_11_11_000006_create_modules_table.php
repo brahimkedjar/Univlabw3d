@@ -20,9 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('speclalities_id')->nullable();
             $table->string('module_name')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null')->onUpdate("cascade");
-            $table->foreign('levels_id')->references('id')->on('levels')->onDelete('set null')->onUpdate("cascade");
-            $table->foreign('speclalities_id')->references('id')->on('specialities')->onDelete('set null')->onUpdate("cascade");
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('levels_id')->references('id')->on('levels');
+            $table->foreign('speclalities_id')->references('id')->on('specialities');
             
             
         });

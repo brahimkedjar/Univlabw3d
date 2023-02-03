@@ -208,6 +208,7 @@
           </div>
           
         </div>
+        
         <!-- GRID VIEW -->
         <div class="view_wrap grid-view row" style="display: none;">
           <div class="container-fluid">
@@ -227,7 +228,10 @@
             <div class="vi_right">
               <p class="title">{{ $value->name }}</p>
               <p class="content">{{ $value->levels_id }}</p>
-              <div class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
+              <div id="view-more-btn" class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
+              <script>
+                
+              </script>
             </div>
           </div>   
           @endif                
@@ -359,6 +363,9 @@
                 <div class="vi_right">
                   <p class="title">{{ $value->module_name }}</p>
               <p class="content">{{ $value->levels_id }}</p>
+              
+
+
               <div class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
                 </div>
               </div>

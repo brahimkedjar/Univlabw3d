@@ -24,10 +24,10 @@ class StoreModuleRequest extends FormRequest
     public function rules()
     {
         return [
-            'module_name' =>['string', 'required'],
+            'module_name' => ['string', 'required'],
             'levels_id' => ['required'],
             'specialities_id' => ['required'],
-            'user_id' => ['required'],
+            'user_id' => ['string'],
         ];
     }
 }

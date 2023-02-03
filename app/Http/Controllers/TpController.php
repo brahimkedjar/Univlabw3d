@@ -68,9 +68,16 @@ class TpController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), $this->rules);
+       
         if ($validator->fails()) return response()->json(null, 404);
-        Tp::create($request->post());
-        return response()->json('Tp has been created successfully.', 200);
+        $tp=Tp::create([
+            'name' => $request->name,
+            'module_id' => $request->module_id,
+            'rappel' => $request->rappel,
+            'objectif' => $request->objectif,
+            'materiel' => $request->materiel,
+            'questions' => $request->questions]);
+        return response()->json($tp);
     }
 
     /**
@@ -79,9 +86,14 @@ class TpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function showModuleTPS($module_id)
+    {
+        $tps = TP::where('module_id', $module_id)->get();
+        return view('tps.index', compact('tps'));
+    }
     public function show($id)
     {
-        $tp = DB::table('tps')
+         $tp = DB::table('tps')
             ->join('modules', 'tps.module_id', '=', 'modules.id')
             ->select('tps.*', 'modules.module_name')
             ->where('tps.id', '=', $id)
