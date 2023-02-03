@@ -22,8 +22,16 @@ class ModuleController extends Controller
             'specialities_id'=>$request->specialities_id,
             'user_id' =>$request->user_id,
         ]);
+        $user1 = Module::where(
+            'module_id',
+            $request->module_id,
+            'module_name',
+            $request->module_name
+        )->first();
+        $request->session()->put('data', $user1);
         return $this->success([
             'modules' =>$module,
+            'session'=> session('data')
         ]);
     }
 
