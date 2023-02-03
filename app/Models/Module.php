@@ -16,7 +16,7 @@ class Module extends Model
     protected $fillable = [
         'module_name',
         'levels_id',
-        'specialities_id',
+        'speclalities_id',
         'user_id',
     ];
 }
