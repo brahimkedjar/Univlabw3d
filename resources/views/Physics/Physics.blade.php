@@ -42,7 +42,7 @@
                  alt="UnivLab3D"
                  loading="lazy"
                  style="display:inline;"
-               /> <b style="display:inline;"> UnivLab3D</b></a>
+               /> <b style="display:inline;"> UnivLab3D </b></a>
                 
       
                    <!-- Toggle button -->
@@ -187,34 +187,31 @@
           <div class="view_item rounded-4">
             <div class="vi_right">
               
-              @inject('Tps', 'App\Http\Controllers\TpController')
-
- @php
-$Tps = $Tps::index_filtred();
-dd($Tps)
-
-	
-  @endphp
-              
-              <div class="view_item rounded-4">
-             <div class="vi_left">
-              <img src="../assets/img/chemistry-lab.png" alt="lab">
-            </div>
+              @foreach(App\Models\Module::orderBy('module_name')->get() as $key => $value)
+              @if($value->speclalities_id==session('data')['speciality_id'])
+                <div class="view_item rounded-4">
+                <div class="vi_left">
+                <img src="../assets/img/chemistry-lab.png" alt="lab">
+               </div>
             <div class="vi_right">
-             
+              <p class="title">{{ $value->module_name }}</p>
+              <p class="content">{{ $value->levels_id }}</p>
               
-              <div class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
+  
+  <div class="btn"><a class="text-white" href="{{ url('/modules/'.$value->id.'/tps') }}">show tp</a></div>
+
             </div>
             
           </div>     
-                       
-                               
-                                
+              
+             @endif              
+                                @endforeach
               <div class="btn"><a class="text-white"  href="{{ route('Lab') }}"> View More </a></div>
             </div>
           </div>
           
         </div>
+        
         <!-- GRID VIEW -->
         <div class="view_wrap grid-view row" style="display: none;">
           <div class="container-fluid">
@@ -224,21 +221,30 @@ dd($Tps)
                   <img src="../assets/img/chemistry-lab.png" alt="Lab img">
                 </div>
                 <div class="vi_right">
-              @foreach(App\Models\Tp::orderBy('module_id')->get()->slice(0, 5) as $key => $value)
-                            @if($value->module_id==1)
-
+             
               <div class="view_item rounded-4">
              <div class="vi_left">
               <img src="../assets/img/chemistry-lab.png" alt="lab">
             </div>
             <div class="vi_right">
+               @foreach($tps as $key => $value)
+                <div class="view_item rounded-4">
+                <div class="vi_left">
+                <img src="../assets/img/chemistry-lab.png" alt="lab">
+               </div>
+            <div class="vi_right">
               <p class="title">{{ $value->name }}</p>
-              <p class="content">{{ $value->levels_id }}</p>
-              <div class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
+              <p class="content">{{ $value->materiel }}</p>
+              
+              
+            </div>
+            
+          </div>     
+            
+                                @endforeach
             </div>
           </div>   
-          @endif                
-                                @endforeach
+    
                   <div class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
 
                 </div>
@@ -297,6 +303,8 @@ dd($Tps)
               <img src="../assets/img/chemistry-lab.png" alt="lab">
             </div>
             <div class="vi_right">
+             
+
               <p class="title">Lab 1</p>
               <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
               <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
@@ -353,21 +361,29 @@ dd($Tps)
           <div class="container-fluid">
             <div class="row row-cols-3 text-center">
 
-              @foreach(App\Models\Tp::orderBy('module_id')->get()->slice(0, 5) as $key => $value)
-                             @if($value->module_id==1)
-
               <div class="view_item rounded-4 col">
                 <div class="vi_left">
                   <img src="../assets/img/chemistry-lab.png" alt="Lab img">
                 </div>
                 <div class="vi_right">
-                  <p class="title">{{ $value->name }}</p>
-              <p class="content">{{ $value->objectif }}</p>
+                  @foreach ($tps as $tp) 
+   
+
+              <div class="view_item rounded-4">
+             <div class="vi_left">
+              <img src="../assets/img/chemistry-lab.png" alt="lab">
+            </div>
+            <div class="vi_right">
+              <p class="title">{{ $tp->name }}</p>
+              <p class="content">{{ $tp->objectif }}</p>
               <div class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
+            </div>
+          </div>   
+                       
+                                @endforeach
                 </div>
               </div>
-              @endif  
-              @endforeach
+            
               
               <div class="view_item rounded-4 col" style="background:none; box-shadow:none; font-size: 5rem; padding-top: 15%;">
                 <div class="text-center align-items-center justify-content-center">

@@ -122,7 +122,8 @@
             
         <div class="form-container sign-in-container" id="sign-in">
             
-            <form action="{{ route('login') }}" method="get">
+            <form action="{{ route('login') }}" method="post">
+                @csrf
                 <a class="logo1" id="brand1" href="index.html"><img
                     src="assets/img/univlab logo 2.svg"
                     height="50"

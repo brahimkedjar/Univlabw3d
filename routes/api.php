@@ -21,8 +21,7 @@ use App\Http\Controllers\objects3d_C;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/login', [AuthController::class,'login'])->name('login');
+Route::post('/login', [AuthController::class,'login'])->name('login');
 //Public Routes
 Route::resource('/tps', TpController::class);
 Route::get('allObject3D', [objects3d_C::class, 'getObject']);

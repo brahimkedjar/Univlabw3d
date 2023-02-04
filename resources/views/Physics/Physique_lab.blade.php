@@ -22,16 +22,10 @@
         Department
       </div>
       <div class="col">
-        Module
-      </div>
-      <div class="col">
-        Type TP
+        Module <h5>{{ $tp->name }}</h5>
       </div>
       <div class="col">
         Durre TP 
-      </div>
-      <div class="col">
-        Enseignant 
       </div>
     </div>
   </div>
@@ -39,18 +33,27 @@
   <div class="container ee">
 		<div class="box" >
 			<h3>Objectifs</h3>
+      <h5>{{ $tp->objectif }}</h5>
 	  </div>
 	</div>
   
   <div class="container ee">
 		<div class="box" >
 			<h3>Rappels</h3>
+      <h5>{{ $tp->rappel }}</h5>
 	  </div>
 	</div>
 
   <div class="container ee">
 		<div class="box" >
-			<h3>Introduction</h3>
+			<h3>Materiel</h3>
+      <h5>{{ $tp->materiel }}</h5>
+	  </div>
+	</div>
+  <div class="container ee">
+		<div class="box" >
+			<h3>Questions</h3>
+      <h5>{{ $tp->questions }}</h5>
 	  </div>
 	</div>
 

@@ -22,19 +22,19 @@ class TpController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     *@param  int  $module_id
      * @return \Illuminate\Http\Response
      */
- public static function index()
+    public static function index($module_id)
     {
-        $tps = DB::table('tps')
-            ->join('modules', 'tps.module_id', '=', 'modules.id')
-            ->select('tps.*', 'modules.module_name')
-            ->get();
-
-         $res = response()->json(['tps' => $tps]);
         
-        return response()->json($tps, 200)->getData();
+        $tps = DB::table('tps')
+        ->join('modules', 'tps.module_id', '=', 'modules.id')
+        ->select('tps.*', 'modules.module_name')
+        ->where('tps.module_id', $module_id)
+            ->get();
+        
+        return response()->view('Physics.Physics', compact('tps'));
     }
     public static function index_filtred()
     {
@@ -100,7 +100,7 @@ class TpController extends Controller
             ->first();
 
         if (!$tp) return response()->json(null, 404);
-        return response()->json($tp, 200);
+        return view('Physics.Physique_lab', compact('tp'));
     }
 
     /**

@@ -219,10 +219,10 @@
                   Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="bi bi-box-arrow-right"></i>
-                  Logout
-              </a>
+              <a class="dropdown-item" href="{{ route('logout_tst') }}" data-toggle="modal" data-target="#logoutModal">
+                                <i class="bi bi-box-arrow-right"></i>
+                                LogOut
+                            </a>
           </div><!-- fin Profile Dropdown -->
         </li><!-- fin Profile -->
 

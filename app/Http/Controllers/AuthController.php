@@ -18,6 +18,7 @@ class AuthController extends Controller
 
     public function login(LoginUserRequest $request)
     {
+
         $request->validated($request->all());
         if (!Auth::attempt($request->only(['inscription_number', 'password'], $request->remember))) {
             return $this->error('', 'Credentials do not match', 401);
@@ -35,6 +36,8 @@ class AuthController extends Controller
             $request->speciality_id
             
         )->first();
+        $request->request->remove('inscription_number');
+        $request->request->remove('password');
         $request->session()->put('data', $user1);
         if ($user1['departement_id'] == 1) {
             $user1['departement_id'] = 'Physics';
@@ -44,6 +47,7 @@ class AuthController extends Controller
         }
         if ($user['departement_id'] == 1) {
             if (Auth::check()) {
+                
                 return view('Physics.Physics_modules');
             } else {
                 return view('signin.sign');

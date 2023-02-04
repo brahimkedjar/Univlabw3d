@@ -32,6 +32,18 @@ class ViewController extends Controller
     {
         return view('Physics.Physique_lab');
     }
+    public function Lab_tst()
+    {
+        return view('Physics.Physics_tst');
+    }
+    public function logout_tst()
+    {
+        return view('FrontEnd.Index');
+    }
+    public function chim_tst()
+    {
+        return view('Chemistry.Chemistry_tst');
+    }
     public function Tps()
     {
         return view('Physics.Physics');

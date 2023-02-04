@@ -42,7 +42,7 @@
                  alt="UnivLab3D"
                  loading="lazy"
                  style="display:inline;"
-               /> <b style="display:inline;"> UnivLab3D </b></a>
+               /> <b style="display:inline;"> UnivLab3D</b></a>
                 
       
                    <!-- Toggle button -->
@@ -75,34 +75,13 @@
         
                 </div>
 
-                <div class="nav-item dropdown no-arrow pe-3">
-                      
-                        <!-- Profile Iamge Icon -->
-                        <a class="nav-link nav-profile d-flex align-items-center dropdown-toggle pe-0" href="#" 
-                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <img href="{{ route('student_profile') }}"  src="../assets/img/man.png" alt="Profile" class="rounded-circle">          
-                        </a><!-- fin Profile Iamge Icon -->
-              
-                        <!-- Profile Dropdown -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                            aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="{{ route('student_profile') }}">
-                                <i class="bi bi-person"></i>
-                                Profile
-                            </a>
-                          
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">
-                                <i class="bi bi-box-arrow-right"></i>
-                                LogOut
-                            </a>
-                        </div><!-- fin Profile Dropdown -->
-                     
-                    </div>
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="../Profile/Student_Profile.html">
+                    <img src="../assets/img/man.png" alt="Profile" class="rounded-circle">          
+                </a>
+            <!-- Collapsible wrapper -->
+      </nav>
 
-                       </nav>
-
-                  </div>
+    </div>
   </header>
       <section class="shapedividers hero mb-sm-5" id="hero">
         <div class="container">
@@ -185,33 +164,60 @@
         <!-- LIST VIEW -->
         <div class="view_wrap list-view" style="display: block;">
           <div class="view_item rounded-4">
-            <div class="vi_right">
-              
-              @foreach(App\Models\Module::orderBy('module_name')->get() as $key => $value)
-              @if($value->speclalities_id==session('data')['speciality_id'])
-                <div class="view_item rounded-4">
-                <div class="vi_left">
-                <img src="../assets/img/chemistry-lab.png" alt="lab">
-               </div>
-            <div class="vi_right">
-              <p class="title">{{ $value->module_name }}</p>
-              <p class="content">{{ $value->levels_id }}</p>
-              
-  
-  <div class="btn"><a class="text-white" href="{{ url('/modules/'.$value->id.'/tps') }}">show tp</a></div>
-
+            <div class="vi_left">
+              <img src="../assets/img/chemistry-lab.png" alt="lab">
             </div>
-            
-          </div>     
-              
-             @endif              
-                                @endforeach
-              <div class="btn"><a class="text-white"  href="{{ route('Lab') }}"> View More </a></div>
+            <div class="vi_right">
+              <p class="title">Lab 1</p>
+              <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+              <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
             </div>
           </div>
-          
+          <div class="view_item rounded-4">
+            <div class="vi_left">
+              <img src="../assets/img/chemistry-lab.png" alt="lab">
+            </div>
+            <div class="vi_right">
+              <p class="title">Lab 2</p>
+              <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+              <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+            </div>
+          </div>
+          <div class="view_item rounded-4">
+            <div class="vi_left">
+              <img src="../assets/img/chemistry-lab.png" alt="lab">
+            </div>
+            <div class="vi_right">
+              <p class="title">Lab 3</p>
+              <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+              <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+            </div>
+          </div>
+          <div class="view_item rounded-4">
+            <div class="vi_left">
+              <img src="../assets/img/chemistry-lab.png" alt="lab">
+            </div>
+            <div class="vi_right">
+              <p class="title">Lab 4</p>
+              <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+              <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+            </div>
+          </div>
+          <div class="view_item rounded-4">
+            <div class="vi_left">
+              <img src="../assets/img/chemistry-lab.png" alt="lab">
+            </div>
+            <div class="vi_right">
+              <p class="title">Lab 5</p>
+              <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+              <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+            </div>
+          </div>
         </div>
-        
         <!-- GRID VIEW -->
         <div class="view_wrap grid-view row" style="display: none;">
           <div class="container-fluid">
@@ -221,29 +227,56 @@
                   <img src="../assets/img/chemistry-lab.png" alt="Lab img">
                 </div>
                 <div class="vi_right">
-              @foreach(App\Models\Module::orderBy('module_name')->get()->slice(0, 5) as $key => $value)
-              @if($value->speclalities_id==session('data')['speciality_id'])
-
-              <div class="view_item rounded-4">
-             <div class="vi_left">
-              <img src="../assets/img/chemistry-lab.png" alt="lab">
-            </div>
-            <div class="vi_right">
-              <p class="title">{{ $value->name }}</p>
-              <p class="content">{{ $value->levels_id }}</p>
-              <div id="view-more-btn" class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
-              <script>
-                
-              </script>
-            </div>
-          </div>   
-          @endif                
-                                @endforeach
-                  <div class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
+                  <p class="title">Lab 1</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
 
                 </div>
               </div>
-              
+              <div class="view_item rounded-4 col">
+                <div class="vi_left">
+                  <img src="../assets/img/chemistry-lab.png" alt="Lab img">
+                </div>
+                <div class="vi_right">
+                  <p class="title">Lab 2</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+                </div>
+              </div>
+              <div class="view_item rounded-4 col">
+                <div class="vi_left">
+                  <img src="../assets/img/chemistry-lab.png" alt="Lab img">
+                </div>
+                <div class="vi_right">
+                  <p class="title">Lab 3</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+                </div>
+              </div>
+              <div class="view_item rounded-4 col">
+                <div class="vi_left">
+                  <img src="../assets/img/chemistry-lab.png" alt="Lab img">
+                </div>
+                <div class="vi_right">
+                  <p class="title">Lab 4</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+                </div>
+              </div>
+              <div class="view_item rounded-4 col">
+                <div class="vi_left">
+                  <img src="../assets/img/chemistry-lab.png" alt="Lab img">
+                </div>
+                <div class="vi_right">
+                  <p class="title">Lab 5</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+                </div>
+              </div>
               <div class="view_item rounded-4 col" style="background:none; box-shadow:none; font-size: 5rem; padding-top: 15%;">
                 <div class="text-center align-items-center justify-content-center">
                   <i class="bi-play-circle-fill more-btn more-btn-primary"></i>
@@ -297,8 +330,6 @@
               <img src="../assets/img/chemistry-lab.png" alt="lab">
             </div>
             <div class="vi_right">
-             
-
               <p class="title">Lab 1</p>
               <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
               <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
@@ -354,27 +385,61 @@
         <div class="view_wrap2 grid-view2 row" style="display: block;">
           <div class="container-fluid">
             <div class="row row-cols-3 text-center">
-
-              @foreach(App\Models\Module::orderBy('module_name')->get()->slice(0, 5) as $key => $value)
-              @if($value->speclalities_id==session('data')['speciality_id'])
-
-
               <div class="view_item rounded-4 col">
                 <div class="vi_left">
                   <img src="../assets/img/chemistry-lab.png" alt="Lab img">
                 </div>
                 <div class="vi_right">
-                  <p class="title">{{ $value->module_name }}</p>
-              <p class="content">{{ $value->levels_id }}</p>
-              
+                  <p class="title">Lab 1</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
 
-
-              <div class="btn"><a class="text-white" href="{{ route('Lab') }}"> View More </a></div>
                 </div>
               </div>
-              @endif  
-              @endforeach
-              
+              <div class="view_item rounded-4 col">
+                <div class="vi_left">
+                  <img src="../assets/img/chemistry-lab.png" alt="Lab img">
+                </div>
+                <div class="vi_right">
+                  <p class="title">Lab 2</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+                </div>
+              </div>
+              <div class="view_item rounded-4 col">
+                <div class="vi_left">
+                  <img src="../assets/img/chemistry-lab.png" alt="Lab img">
+                </div>
+                <div class="vi_right">
+                  <p class="title">Lab 3</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+                </div>
+              </div>
+              <div class="view_item rounded-4 col">
+                <div class="vi_left">
+                  <img src="../assets/img/chemistry-lab.png" alt="Lab img">
+                </div>
+                <div class="vi_right">
+                  <p class="title">Lab 4</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+                </div>
+              </div>
+              <div class="view_item rounded-4 col">
+                <div class="vi_left">
+                  <img src="../assets/img/chemistry-lab.png" alt="Lab img">
+                </div>
+                <div class="vi_right">
+                  <p class="title">Lab 5</p>
+                  <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam impedit, veniam! Voluptate a impedit animi!</p>
+                  <div class="btn"><a class="text-white" href="../Physics/Physique_lab.html"> View More </a></div>
+
+                </div>
+              </div>
               <div class="view_item rounded-4 col" style="background:none; box-shadow:none; font-size: 5rem; padding-top: 15%;">
                 <div class="text-center align-items-center justify-content-center">
                   <i class="bi-play-circle-fill more-btn more-btn-primary"></i>

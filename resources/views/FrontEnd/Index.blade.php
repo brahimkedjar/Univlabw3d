@@ -291,8 +291,8 @@ frontend.sign
         
         <div class="go-to text-center">Go to</div>
         <div class="buttons mb-2">
-          <a href="Physics/Physics.html"><button class="button" id="first" > Physics</button></a>
-          <a href="Chemistry/Chemistry.html"><button class="button" id="second">Chemistry</button></a>
+          <a href="{{ route('Lab_tst') }}"><button class="button" id="first" > Physics</button></a>
+          <a href="{{ route('chim_tst') }}"><button class="button" id="second">Chemistry</button></a>
         </div>
       </div>
       
